@@ -8,7 +8,8 @@
       "type": "pwa-node",
       "request": "launch",
       "name": "Launch JSrouting Program",
-      "program": "${workspaceFolder}/JSrouting/app.js",
+      "cwd":"${workspaceFolder}/JSrouting",
+      "program": "app.js",
       "restart": true,
       "runtimeExecutable": "nodemon"
     }
