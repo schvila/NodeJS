@@ -2,20 +2,21 @@
 const express = require('express');
 
 const app = express();
+app.use(express.urlencoded()); // ommits body parser
 
 //--add midleware volano pri kazdem req.
 // app.use((req, res, next) => {
 //   console.log('In the midleware.');
 //   next(); // jinak se nevola dalsi midleware
 // })
-app.use('/', (req, res, next) => {
-  console.log('always runs.');
-  next();
-})
 
 app.use('/add-product',(req, res, next) => {
-  console.log('In the product midleware.');
-  res.send('<h1>Add product</h1>');
+  res.send('<body><form action="/product" method="POST"><input type="text" name="title"><button type="submit">Add</button></form></body>');
+})
+
+app.use('/product',(req, res, next) => {
+  console.log(req.body);
+  res.redirect('/');
 })
 
 app.use('/',(req, res, next) => {
