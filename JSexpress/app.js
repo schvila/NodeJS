@@ -3,14 +3,23 @@ const express = require('express');
 
 const app = express();
 
-//add midleware volano pri kazdem req.
-app.use((req, res, next) => {
-  console.log('In the midleware.');
-  next(); // jinak se nevola dalsi midleware
+//--add midleware volano pri kazdem req.
+// app.use((req, res, next) => {
+//   console.log('In the midleware.');
+//   next(); // jinak se nevola dalsi midleware
+// })
+app.use('/', (req, res, next) => {
+  console.log('always runs.');
+  next();
 })
 
-app.use((req, res, next) => {
-  console.log('In the second midleware.');
+app.use('/add-product',(req, res, next) => {
+  console.log('In the product midleware.');
+  res.send('<h1>Add product</h1>');
+})
+
+app.use('/',(req, res, next) => {
+  console.log('In the hello midleware.');
   res.send('<h1> Hello express</h1>');
 })
 
