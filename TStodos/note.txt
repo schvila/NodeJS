@@ -1,0 +1,6 @@
+
+Rucni start tsc s watch a nodemon, mame dist
+upravili jsme tsconfif /dist /src
+start buildu s watch a to je vse
+tsc -w
+a v dalsim terminalu pak npm start pro ./dist/app.js
